@@ -1,3 +1,539 @@
+# Table Of Content
+
+1. **[Revision Of C](#revision-of-c)**
+    -
+    - [Pointers in C](#pointers-in-c)
+        -
+        - [What is a Pointer?](#what-is-a-pointer)
+        - [Why Use Pointers?](#why-use-pointers)
+        - [Basic Syntax](#basic-syntax)
+        - [Example : Using Pointers](#example--using-pointers)
+        - [Important Concepts](#important-concepts)
+
+    - [Dynamic Memory Allocation](#dynamic-memory-allocation)
+        -
+        - [Functions for Dynamic Memory Allocation](#functions-for-dynamic-memory-allocation)
+        - [Using `malloc`](#using-malloc)
+        - [Using `calloc`](#using-calloc)
+        - [Using `realloc`](#using-realloc)
+
+    - [File Managment](#file-managment)
+        -
+        - [Basic File Operations](#basic-file-operations)
+        - [Opening and Closing a File](#opening-and-closing-a-file)
+        - [Writing to a File](#writing-to-a-file)
+        - [Reading from a File](#reading-from-a-file)
+
+2. [Concepts of OOP](#concepts-of-oop)
+    -
+    - [Introduction to OOP](#introduction-to-oop)
+        -
+        - [Key Concepts of OOP](#key-concepts-of-oop)
+        - [Example in C++](#example-in-c)
+        - [Explanation of the Example](#explanation-of-the-example)
+        - [Inheritance and Polymorphism Example](#inheritance-and-polymorphism-example)
+
+    - [Procedural Vs. Object-Oriented Programming](#procedural-vs-object-oriented-programming)
+        -
+        - [Procedural Programming](#procedural-programming)
+        - [Object-Oriented Programming](#object-oriented-programming)
+        - [Comparison](#comparison)
+        - [Example to Illustrate the Differences](#example-to-illustrate-the-differences)
+        - [Strengths and Weaknesses](#strengths-and-weaknesses)
+        - [When to Use](#when-to-use)
+
+    - [Principles of OOP](#principles-of-oop)
+        -
+        - [1. Encapsulation](#1-encapsulation)
+        - [2. Abstraction](#2-abstraction)
+        - [3. Inheritance](#3-inheritance)
+        - [4. Polymorphism](#4-polymorphism)
+
+    - [Benefits & Applications of OOP](#benefits--applications-of-oop)
+        -
+        - [Benefits of OOP](#benefits-of-oop)
+        - [Applications of OOP](#applications-of-oop)
+        - [Benefits & Applications](#benefits--applications)
+
+3. [C++ Basics](#c-basics)
+    -
+    - [Overview](#overview)
+        -
+        - [Introduction to C++](#introduction-to-c)
+        - [Basic Syntax and Structure](#basic-syntax-and-structure)
+        - [Key Concepts](#key-concepts)
+        - [Input/Output](#inputoutput)
+        - [Example Program](#example-program)
+
+    - [Program Structure](#program-structure)
+        -
+        - [Basic Structure of a C++ Program](#basic-structure-of-a-c-program)
+        - [Example Program](#example-program-1)
+        - [Detailed Explanation](#detailed-explanation)
+        - [Additional Components in C++ Program Structure](#additional-components-in-c-program-structure)
+        - [Example Program with Classes](#example-program-with-classes)
+
+    - [Namespace](#namespace)
+        -
+        - [Introduction to Namespaces](#introduction-to-namespaces)
+        - [Key Points about Namespaces](#key-points-about-namespaces)
+        - [Example with Multiple Namespaces](#example-with-multiple-namespaces)
+        - [Avoiding Name Conflicts](#avoiding-name-conflicts)
+
+    - [Identifiers](#identifiers)
+        -
+        - [Rules for Identifiers](#rules-for-identifiers)
+        - [Best Practices for Naming Identifiers](#best-practices-for-naming-identifiers)
+        - [Examples of Valid and Invalid Identifiers](#examples-of-valid-and-invalid-identifiers)
+        - [Example Program](#example-program-2)
+
+    - [Variables](#variables)
+        -
+        - [Declaring and Initializing Variables](#declaring-and-initializing-variables)
+        - [Basic Data Types](#basic-data-types)
+        - [Example Program](#example-program-3)
+        - [Variable Scope](#variable-scope)
+        - [Variable Types](#variable-types)
+        - [Example Program with Scope](#example-program-with-scope)
+        
+    - [Constants](#constants)
+        -
+        - [Defining Constants](#defining-constants)
+        - [1. Using the `const` Keyword](#1-using-the-const-keyword)
+        - [2. Using the `#define` Preprocessor Directive](#2-using-the-define-preprocessor-directive)
+        - [3. Using `constexpr` (C++11 and Later)](#3-using-constexpr-c11-and-later)
+        - [Differences Between `const`, `#define`, and `constexpr`](#differences-between-const-define-and-constexpr)
+        - [Example with Class Constants](#example-with-class-constants)
+
+    - [Enum](#enum)
+        -
+        - [Basic Syntax of `enum`](#basic-syntax-of-enum)
+        - [Example of an Enumeration](#example-of-an-enumeration)
+        - [Key Points about Enums](#key-points-about-enums)
+        - [Example Programs](#example-programs)
+
+    - [Operators](#operators)
+        -
+        - [Types of Operators](#types-of-operators)
+        - [1. Arithmetic Operators](#1-arithmetic-operators)
+        - [2. Relational Operators](#2-relational-operators)
+        - [3. Logical Operators](#3-logical-operators)
+        - [4. Bitwise Operators](#4-bitwise-operators)
+        - [5. Assignment Operators](#5-assignment-operators)
+        - [6. Increment and Decrement Operators](#6-increment-and-decrement-operators)
+        - [7. Conditional (Ternary) Operator](#7-conditional-ternary-operator)
+        - [8. Comma Operator](#8-comma-operator)
+        - [9. Type Cast Operator](#9-string-manipulation)
+        - [10. Sizeof Operator](#10-input-and-output)
+
+    - [Typecasting](#typecasting)
+        -
+        - [Types of Typecasting](#types-of-typecasting)
+        - [1. Implicit Typecasting (Automatic Type Conversion)](#1-implicit-typecasting-automatic-type-conversion)
+        - [2. Explicit Typecasting (Manual Type Conversion)](#2-explicit-typecasting-manual-type-conversion)
+
+    - [Control Structures](#control-structures)
+        -
+        - [1. Conditional Statements](#1-conditional-statements)
+        - [2. Loops](#2-loops)
+        - [3. Jump Statements](#3-jump-statements)
+
+
+4. [C++ Functions](#c-functions)
+    -
+    - [Simple Functions](#simple-functions)
+        -
+        - [Defining a Function](#defining-a-function)
+        - [Example of a Simple Function](#example-of-a-simple-function)
+        - [Function with No Parameters and No Return Value](#function-with-no-parameters-and-no-return-value)
+        - [Function with Parameters and No Return Value](#function-with-parameters-and-no-return-value)
+        - [Function with No Parameters and a Return Value](#function-with-no-parameters-and-a-return-value)
+        - [Function Overloading](#function-overloading)
+
+    - [Call & Return By Reference](#call--return-by-reference)
+        -
+        - [Call by Value](#call-by-value)
+        - [Call by Reference](#call-by-reference)
+        - [Returning by Reference](#returning-by-reference)
+        - [Important Points](#important-points)
+        - [Example with Arrays](#example-with-arrays)
+
+    - [Inline Functions](#inline-functions)
+        -
+        - [Defining Inline Functions](#defining-inline-functions)
+        - [Example of an Inline Function](#example-of-an-inline-function)
+        - [Inline Functions in Classes](#inline-functions-in-classes)
+        - [Advantages of Inline Functions](#advantages-of-inline-functions)
+        - [Limitations and Considerations](#limitations-and-considerations)
+        - [Example with Inline Keyword](#example-with-inline-keyword)
+
+    - [Macro Vs. Inline Functions](#macro-vs-inline-functions)
+        -
+        - [Macros](#macros)
+        - [Inline Functions](#inline-functions-1)
+        - [Comparison](#comparison-1)
+
+    - [Overloading Of Functions](#overloading-of-functions)
+        -
+        - [Key Points of Function Overloading](#key-points-of-function-overloading)
+        - [Example of Function Overloading](#example-of-function-overloading)
+        - [Overloading with Different Number of Parameters](#overloading-with-different-number-of-parameters)
+        - [Overloading with Different Parameter Types](#overloading-with-different-parameter-types)
+        - [Rules and Best Practices](#rules-and-best-practices)
+        - [Example with Class Methods](#example-with-class-methods)
+
+    - [Default Arguments](#default-arguments)
+        -
+        - [Syntax](#syntax)
+        - [Example of Default Arguments](#example-of-default-arguments)
+        - [Rules for Default Arguments](#rules-for-default-arguments)
+        - [Example with Class Methods](#example-with-class-methods-1)
+
+    - [Friend Functions](#friend-functions)
+        -
+        - [Key Points about Friend Functions](#key-points-about-friend-functions)
+        - [Example of a Friend Function](#example-of-a-friend-function)
+        - [Why Use Friend Functions?](#why-use-friend-functions)
+        - [Example of Friend Function for Operator Overloading](#example-of-friend-function-for-operator-overloading)
+
+5. [Objects & Classes](#objects--classes)
+    -
+    - [Basics Of Object & Class in C++](#basics-of-object--class-in-c)
+        -
+        - [What is a Class?](#what-is-a-class)
+        - [What is an Object?](#what-is-an-object)
+        - [Members of a Class](#members-of-a-class)
+        - [Constructors and Destructors](#constructors-and-destructors)
+
+    - [Private & Public Members](#private--public-members)
+        -
+        - [Access Specifiers in C++](#access-specifiers-in-c)
+        - [Public Members](#public-members)
+        - [Private Members](#private-members)
+        - [Why Use Private Members?](#why-use-private-members)
+        - [Example: Combining Public and Private Members](#example-combining-public-and-private-members)
+
+    - [Static Data & Function Members](#static-data--function-members)
+        -
+        - [Static Data Members](#static-data-members)
+        - [Static Member Functions](#static-member-functions)
+        - [Combined Example : Static Data Members and Static Member Functions](#combined-example--static-data-members-and-static-member-functions)
+
+    - [Constructors & Their Types](#constructors--their-types)
+        -
+        - [Types of Constructors](#types-of-constructors)
+        - [1. Default Constructor](#1-default-constructor)
+        - [2. Parameterized Constructor](#2-parameterized-constructor)
+        - [3. Copy Constructor](#3-copy-constructor)
+        - [4. Move Constructor (C++11)](#4-move-constructor-c11)
+        - [5. Delegating Constructor (C++11)](#5-delegating-constructor-c11)
+
+    - [Destructors](#destructors)
+        -
+        - [Key Features of Destructors](#key-features-of-destructors)
+        - [Example of a Destructor](#example-of-a-destructor)
+        - [When Destructors Are Called](#when-destructors-are-called)
+        - [Example: Object Going Out of Scope](#example-object-going-out-of-scope)
+        - [Example: Explicitly Deleting Objects](#example-explicitly-deleting-objects)
+        - [Example: Destructor in Inheritance](#example-destructor-in-inheritance)
+        - [Best Practices for Destructors](#best-practices-for-destructors)
+
+    - [Operator Overloading](#operator-overloading)
+        -
+        - [Key Points about Operator Overloading](#key-points-about-operator-overloading)
+        - [Types of Operators That Can Be Overloaded](#types-of-operators-that-can-be-overloaded)
+        - [Example : Overloading Arithmetic Operators](#example--overloading-arithmetic-operators)
+        - [Example : Overloading the `<<` Operator](#example--overloading-the--operator)
+        - [Example : Overloading the Subscript Operator `[]`](#example--overloading-the-subscript-operator-)
+
+    - [Type Conversion](#type-conversion)
+        -
+        - [Types of Type Conversion](#types-of-type-conversion)
+        - [1. Implicit Conversion (Automatic)](#1-implicit-conversion-automatic)
+        - [2. Explicit Conversion (Casting)](#2-explicit-conversion-casting)
+        - [3. User-Defined Conversion](#3-user-defined-conversion)
+
+6. [Inheritance](#inheritance)
+    -
+    - [Concept Of Inheritance](#concept-of-inheritance)
+        -
+        - [Key Concepts of Inheritance](#key-concepts-of-inheritance)
+        - [Types of Inheritance](#types-of-inheritance)
+        - [Syntax of Inheritance](#syntax-of-inheritance)
+        - [Example: Single Inheritance](#example-single-inheritance)
+        - [Access Specifiers and Inheritance](#access-specifiers-and-inheritance)
+        - [Example: Access Specifiers](#example-access-specifiers)
+        - [Example: Multiple Inheritance](#example-multiple-inheritance)
+        - [Virtual Inheritance](#virtual-inheritance)
+
+    - [Types Of Inheritance](#types-of-inheritance)
+        -
+        - [1. Single Inheritance](#1-single-inheritance)
+        - [2. Multiple Inheritance](#2-multiple-inheritance)
+        - [3. Multilevel Inheritance](#3-multilevel-inheritance)
+        - [4. Hierarchical Inheritance](#4-hierarchical-inheritance)
+        - [5. Hybrid Inheritance](#5-hybrid-inheritance)
+
+    - [Protected Members](#protected-members)
+        -
+        - [Key Points about `protected` Members](#key-points-about-protected-members)
+        - [Syntax](#syntax-1)
+        - [Example of `protected` Members](#example-of-protected-members)
+        - [Explanation](#explanation)
+        - [Advantages of `protected` Members](#advantages-of-protected-members)
+
+    - [Overriding](#overriding)
+        -
+        - [Key Points about Method Overriding](#key-points-about-method-overriding)
+        - [Syntax](#syntax-2)
+        - [Example of Method Overriding](#example-of-method-overriding)
+        - [Explanation](#explanation-1)
+        - [Virtual Destructors](#virtual-destructors)
+
+    - [Virtual Base Class](#virtual-base-class)
+        -
+        - [Diamond Problem](#diamond-problem)
+        - [Using Virtual Base Classes](#using-virtual-base-classes)
+        - [Syntax](#syntax-3)
+        - [Example with Virtual Inheritance](#example-with-virtual-inheritance)
+        - [Explanation](#explanation-2)
+        - [Virtual Inheritance in Depth](#virtual-inheritance-in-depth)
+
+7. [Polymorphism](#polymorphism)
+    -
+    - [Pointers in C++](#pointers-in-c-1)
+        -
+        - [Key Concepts of Pointers](#key-concepts-of-pointers)
+        - [Pointer Declaration](#pointer-declaration)
+        - [Pointer Initialization](#pointer-initialization)
+        - [Dereferencing](#dereferencing)
+        - [Example: Basic Pointer Usage](#example-basic-pointer-usage)
+        - [Output](#output)
+        - [Pointer Arithmetic](#pointer-arithmetic)
+        - [Advanced Concepts](#advanced-concepts)
+        - [Functions and Pointers](#functions-and-pointers)
+        - [Dynamic Memory Allocation](#dynamic-memory-allocation-1)
+
+    - [Pointers & Objects](#pointers--objects)
+        -
+        - [Key Concepts](#key-concepts-1)
+        - [Object Pointers](#object-pointers)
+        - [Dynamic Allocation of Objects](#dynamic-allocation-of-objects)
+        - [Accessing Members](#accessing-members)
+        - [Passing Objects to Functions](#passing-objects-to-functions)
+        - [Array of Objects](#array-of-objects)
+        - [Example: Linked List Using Pointers and Objects](#example-linked-list-using-pointers-and-objects)
+
+    - [This Pointer](#this-pointer)
+        -
+        - [Key Points](#key-points)
+        - [Example](#example)
+        - [Output](#output-1)
+        - [Detailed Explanation](#detailed-explanation-1)
+        - [Common Uses of `this` Pointer](#common-uses-of-this-pointer)
+
+    - [Virtual & Pure Virtual Functions](#virtual--pure-virtual-functions)
+        -
+        - [Virtual Functions](#virtual-functions)
+        - [Example: Virtual Functions](#example-virtual-functions)
+        - [Output](#output-2)
+        - [Pure Virtual Functions](#pure-virtual-functions)
+        - [Example: Pure Virtual Functions](#example-pure-virtual-functions)
+        - [Output](#output-3)
+        - [Detailed Explanation](#detailed-explanation-2)
+        - [Abstract Classes](#abstract-classes)
+
+    - [Implementing Polymorphism](#implementing-polymorphism)
+        -
+        - [Run-time Polymorphism](#run-time-polymorphism)
+        - [Example: Run-time Polymorphism](#example-run-time-polymorphism)
+        - [Output](#output-4)
+        - [Explanation](#explanation-3)
+        - [Compile-time Polymorphism](#compile-time-polymorphism)
+
+8. [I/O Files & Templates](#io-files--templates)
+    -
+    - [C++ Stream Classes](#c-stream-classes)
+        -
+        - [Stream Class Hierarchy](#stream-class-hierarchy)
+        - [Key Stream Classes](#key-stream-classes)
+        - [Basic Input and Output with Streams](#basic-input-and-output-with-streams)
+        - [File I/O with Streams](#file-io-with-streams)
+        - [String Streams](#string-streams)
+
+    - [Unformatted & Formatted I/O](#unformatted--formatted-io)
+        -
+        - [Unformatted I/O](#unformatted-io)
+        - [Formatted I/O](#formatted-io)
+        - [Manipulators](#manipulators)
+
+    - [Manipulators](#manipulators-1)
+        -
+        - [Commonly Used Manipulators](#commonly-used-manipulators)
+        - [Summary of Common Manipulators](#summary-of-common-manipulators)
+        - [Example Usage](#example-usage)
+        - [Output](#output-5)
+
+    - [File Management Functions](#file-management-functions)
+        -
+        - [Key File Stream Classes](#key-file-stream-classes)
+        - [Basic File Operations](#basic-file-operations-1)
+        - [Writing to a File](#writing-to-a-file-2)
+        - [Reading from a File](#reading-from-a-file-2)
+        - [File Modes](#file-modes)
+        - [Additional File Management Functions](#additional-file-management-functions)
+
+    - [File Modes](#file-modes-1)
+        -
+        - [Common File Modes](#common-file-modes)
+        - [Combining File Modes](#combining-file-modes)
+        - [Examples](#examples)
+        - [Summary of File Modes](#summary-of-file-modes)
+        - [Combining File Modes](#combining-file-modes-1)
+
+    - [Templates](#templates)
+        -
+        - [Function Templates](#function-templates)
+        - [Class Templates](#class-templates)
+        - [Template Specialization](#template-specialization)
+        - [Class Template Specialization](#class-template-specialization)
+        - [Template Parameters](#template-parameters)
+
+    - [Exception Handling & Standard Template Library](#exception-handling--standard-template-library)
+        -
+        - [Exception Handling in C++](#exception-handling-in-c)
+        - [Standard Template Library (STL)](#standard-template-library-stl)
+        - [Example: Using `map`](#example-using-map)
+        - [Example: Using `set`](#example-using-set)
+
+9. [Introduction to Python Programming](#introduction-to-python-programming)
+    -
+    - [The Basic Elements of Python](#the-basic-elements-of-python)
+        -
+        - [1. Variables and Data Types](#1-variables-and-data-types)
+        - [2. Basic Operators](#2-basic-operators)
+        - [3. Control Structures](#3-control-structures)
+        - [4. Functions](#4-functions)
+        - [5. Lists](#5-lists)
+        - [6. Tuples](#6-tuples)
+        - [7. Dictionaries](#7-dictionaries)
+        - [8. Sets](#8-sets)
+        - [9. String Manipulation](#9-string-manipulation)
+        - [10. Input and Output](#10-input-and-output)
+        - [11. Exception Handling](#11-exception-handling)
+
+    - [Branching Programs](#branching-programs)
+        -
+        - [Basic Conditional Statements](#basic-conditional-statements)
+        - [Nested Conditional Statements](#nested-conditional-statements)
+        - [Logical Operators](#logical-operators-1)
+        - [Examples of Branching Programs](#examples-of-branching-programs)
+
+    - [Control Structures](#control-structures-1)
+        -
+        - [1. Conditional Statements](#1-conditional-statements-1)
+        - [2. Loops](#2-loops-1)
+        - [3. Branching Statements](#3-branching-statements)
+        - [4. Functions](#4-functions-1)
+        - [5. List Comprehensions](#5-list-comprehensions)
+        - [6. Dictionary Comprehensions](#6-dictionary-comprehensions)
+        - [Examples](#examples-1)
+
+    - [Strings & Input](#strings--input)
+        -
+        - [1. String Basics](#1-string-basics)
+        - [2. String Operations](#2-string-operations)
+        - [3. String Methods](#3-string-methods)
+        - [4. String Formatting](#4-string-formatting)
+        - [5. Handling User Input](#5-handling-user-input)
+        - [Examples](#examples-2)
+
+    - [Iteration](#iteration)
+        -
+        - [1. `for` Loop](#1-for-loop)
+        - [2. `while` Loop](#2-while-loop)
+        - [3. Nested Loops](#3-nested-loops)
+        - [4. Loop Control Statements](#4-loop-control-statements)
+        - [5. List Comprehensions](#5-list-comprehensions-1)
+        - [6. Dictionary Comprehensions](#6-dictionary-comprehensions-1)
+        - [Examples](#examples-3)
+
+    - [Functions & Scoping](#functions--scoping)
+        -
+        - [1. Functions](#1-functions)
+        - [2. Scoping](#2-scoping)
+        - [3. The `global` and `nonlocal` Keywords](#3-the-global-and-nonlocal-keywords)
+        - [4. Anonymous (Lambda) Functions](#4-anonymous-lambda-functions)
+        - [Examples](#examples-4)
+
+    - [Specifications](#specifications)
+        -
+        - [1. Docstrings](#1-docstrings)
+        - [2. Type Hints](#2-type-hints)
+        - [3. Comments](#3-comments)
+        - [4. Assertions](#4-assertions)
+        - [5. Example](#5-example)
+
+    - [Recursion](#recursion)
+        -
+        - [Key Concepts](#key-concepts-2)
+        - [Basic Example](#basic-example)
+        - [Recursive Functions](#recursive-functions)
+        - [Practical Example](#practical-example)
+        - [Handling Recursion Depth](#handling-recursion-depth)
+        - [Recursion vs. Iteration](#recursion-vs-iteration)
+        - [Tail Recursion](#tail-recursion)
+
+    - [Global Variables](#global-variables)
+        -
+        - [Key Concepts](#key-concepts-3)
+        - [Example](#example-2)
+        - [Reading Global Variables](#reading-global-variables)
+        - [Modifying Global Variables](#modifying-global-variables)
+        - [Best Practices](#best-practices)
+        - [Example of Using Global and Local Variables](#example-of-using-global-and-local-variables)
+        - [Local vs. Global Variables](#local-vs-global-variables)
+        - [Nested Functions and Global Variables](#nested-functions-and-global-variables)
+
+    - [Strings](#strings)
+        -
+        - [Creating Strings](#creating-strings-1)
+        - [String Operations](#string-operations)
+        - [String Methods](#string-methods)
+        - [Formatting Strings](#formatting-strings)
+        - [Checking String Content](#checking-string-content)
+        - [Escape Characters](#escape-characters)
+        - [Raw Strings](#raw-strings)
+        - [Examples](#examples-5)
+
+    - [Tuples](#tuples)
+        -
+        - [Creating Tuples](#creating-tuples)
+        - [Accessing Elements](#accessing-elements)
+        - [Slicing](#slicing-1)
+        - [Tuple Methods](#tuple-methods)
+        - [Tuple Operations](#tuple-operations)
+        - [Tuple Packing and Unpacking](#tuple-packing-and-unpacking)
+        - [Nested Tuples](#nested-tuples)
+        - [Tuple vs. List](#tuple-vs-list)
+        - [Example : Using Tuples in Functions](#example--using-tuples-in-functions)
+        - [Tuple Immutability](#tuple-immutability)
+        - [Use Cases for Tuples](#use-cases-for-tuples)
+
+    - [List](#list)
+        -
+        - [Creating Lists](#creating-lists)
+        - [Accessing Elements](#accessing-elements-1)
+        - [Modifying Lists](#modifying-lists)
+        - [List Operations](#list-operations)
+        - [List Methods](#list-methods)
+        - [List Comprehensions](#list-comprehensions)
+        - [Nested Lists](#nested-lists)
+        - [Example : Using Lists](#example--using-lists)
+
+#
+
+
 # Revision Of C
 
 ## Pointers in C
